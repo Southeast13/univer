@@ -4,10 +4,13 @@ workflows:
     max_build_duration: 60
     environment:
       java: 17
+      android:
+        api_level: 34
+        build_tools_version: 34.0.0
     scripts:
       - name: Clean project
-        script: ./gradlew clean
+        script: gradle clean
       - name: Build debug APK
-        script: ./gradlew assembleDebug
+        script: gradle assembleDebug
     artifacts:
       - app/build/outputs/**/*.apk
